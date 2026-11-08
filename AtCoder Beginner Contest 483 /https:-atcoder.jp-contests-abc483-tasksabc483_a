@@ -1,1 +1,39 @@
+problem :
+A - Double-Sided Printing  / 
+Time Limit: 2 sec / Memory Limit: 1024 MiB
+Score : 
+100 points
+Problem Statement
+You are given a positive integer 
+N.
+You will print a document consisting of 
+N pages on sheets of copy paper.
+You will use double-sided printing, so one page can be printed on each of the front and back of a sheet.
+Find the minimum number of sheets of copy paper needed to print all 
+N pages.
+Constraints
+1≤N≤100
+N is an integer.
+Input
+The input is given from Standard Input in the following format:
+N
+Output
+Print the answer.
+-------------------------------------------------------------------------------------------------------------------------------
+solution code :--
+-------------------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
 
+int main(){
+    int n;
+    cin >> n;
+    if(n%2==0){
+        cout << (n/2) ;
+    }
+    else
+    cout << (n/2)+1;
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------------------------------
