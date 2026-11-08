@@ -1,0 +1,78 @@
+B - Flip Card Stack  / 
+Time Limit: 2 sec / Memory Limit: 1024 MiB
+Score : 
+200 points
+Problem Statement
+There are 
+N cards numbered 
+1 to 
+N, each with a distinguishable front and back. Initially, they are stacked in the order 
+1,2,…,N from the top, all face up.
+Takahashi performs 
+Q operations on this stack. The 
+i-th operation 
+(1≤i≤Q) is as follows.
+Flip the top 
+Ki cards over together as a single block and put them back in place.
+This reverses the top-to-bottom order of the top Ki
+​cards and also turns each of those cards over.
+Find the order and orientation of the cards after all operations.Specifically, for each i=1,2,…,N, let 
+Xi be the number written on the 
+i-th card from the top; print Xi if that card is face up, and −Xi
+​if it is face down.
+Constraints
+1≤N,Q≤100
+1≤Ki≤N All input values are integers.
+Input
+The input is given from Standard Input in the following format:
+N 
+Q
+K1,K2...KQ
+​Output
+Print 
+N lines. For the 
+i-th line 
+(1≤i≤N), let Xi be the number written on the i-th card from the top after the Q operations; print Xi
+​if that card is face up, and −Xi if it is face down.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+solution code:
+-------------------------------------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+
+    int a[105];
+    for(int i = 0; i < n; i++) {
+        a[i] = i + 1;
+    }
+
+    for(int x = 0; x < q; x++) {
+        int k;
+        cin >> k;
+        int i = 0;
+        int j = k - 1;
+
+        while(i < j) {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+
+            i++;
+            j--;
+        }
+        for(int i = 0; i < k; i++) {
+            a[i] = -a[i];
+        }
+    }
+    for(int i = 0; i < n; i++) {
+        cout << a[i] << endl;
+    }
+
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
